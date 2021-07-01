@@ -1,0 +1,36 @@
+{
+  "name": "gridsome-remark-file-attachment",
+  "version": "1.0.0",
+  "description": "Gridsome remark plugin to embed files in markdown, as more than just a link.",
+  "main": "index.js",
+  "author": "Marcus Raevmann Brown",
+  "homepage": "https://github.com/Healios/remark-file-attachment",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Healios/remark-file-attachment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Healios/remark-file-attachment/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "remark",
+    "gridsome",
+    "gridsome-plugin",
+    "markdown",
+    "wcag",
+    "a11y",
+    "accessability",
+    "attachment",
+    "attachments",
+    "file",
+    "files"
+  ],
+  "dependencies": {
+    "unist-util-visit": "1.4.0"
+  },
+  "files": [
+    "gridsome"
+  ]
+}
