@@ -1,6 +1,6 @@
 {
   "name": "remark-file-attachment",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Remark plugin to embed files in markdown, as more than just a link.",
   "main": "dist/index.js",
   "scripts": {
