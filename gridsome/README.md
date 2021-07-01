@@ -1,4 +1,4 @@
-# Remark Youtube Placeholder Plugin
+# Remark File Attachment Plugin
 [![Build](https://github.com/Healios/remark-file-attachment/actions/workflows/node.js.yml/badge.svg)](https://github.com/Healios/remark-file-attachment/actions/workflows/node.js.yml)
 
 This is a plugin for [Remark](https://remark.js.org/), and allows you to embed file attachments in [markdown](https://daringfireball.net/projects/markdown/) files. The plugin offers the ability to style the file attachments, so that they look like more than a simple link, and arguably it offers better accessability as well. This plugin can also be used with [Gridsome](https://gridsome.org/).
