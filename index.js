@@ -113,7 +113,7 @@ module.exports = (options) =>
 					const { attachment, text } = extractGroups(line);
 					if (!attributesAreValid(attachment, text, node)) return;
 					
-					attachmentHTML += `<li class="${itemCss}" style="${itemStyle}"><div class="${iconAndParagraphContainerCss}" style="${iconAndParagraphContainerStyle}">${iconHTML}<span class="${paragraphCss}" style="${paragraphStyle}">${text}</span></div><div class="${linkContainerCss}" style="${linkContainerStyle}"><a href="${attachment}" target="_blank" aria-label="${showLinkAltText}" class="${showLinkCss}" style="${showLinkStyle}">${showLinkText}</a><a href="${attachment}" download aria-label="${downloadLinkAltText}" class="${downloadLinkCss}" style="${downloadLinkStyle}">${downloadLinkText}</a></div></li>`;
+					attachmentHTML += `<li class="${itemCss}" style="${itemStyle}"><div class="${iconAndParagraphContainerCss}" style="${iconAndParagraphContainerStyle}">${iconHTML}<span class="${paragraphCss}" style="${paragraphStyle}">${text}</span></div><div class="${linkContainerCss}" style="${linkContainerStyle}"><a href="${attachment}" target="_blank" rel="noopener noreferrer" aria-label="${showLinkAltText}" class="${showLinkCss}" style="${showLinkStyle}">${showLinkText}</a><a href="${attachment}" download aria-label="${downloadLinkAltText}" class="${downloadLinkCss}" style="${downloadLinkStyle}">${downloadLinkText}</a></div></li>`;
 				}
 				attachmentHTML += "</ul>"
 

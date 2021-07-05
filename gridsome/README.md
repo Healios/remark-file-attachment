@@ -226,7 +226,7 @@ This is how the attachment/s can appear on the screen:
       </div>
 
       <div class="ml-3 inline-flex space-x-4" style="">
-        <a href="/uploads/salesoverview-report.pdf" target="_blank" aria-label="Show attachment in new tab" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Show</a>
+        <a href="/uploads/salesoverview-report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Show attachment in new tab" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Show</a>
         
         <a href="/uploads/salesoverview-report.pdf" download="" aria-label="Download attachment" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Download</a>
       </div>
@@ -240,7 +240,7 @@ This is how the attachment/s can appear on the screen:
       </div>
       
       <div class="ml-3 inline-flex space-x-4" style="">
-        <a href="/uploads/purchaseoverview-report.pdf" target="_blank" aria-label="Show attachment in new tab" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Show</a>
+        <a href="/uploads/purchaseoverview-report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Show attachment in new tab" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Show</a>
         
         <a href="/uploads/purchaseoverview-report.pdf" download="" aria-label="Download attachment" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Download</a>
       </div>
