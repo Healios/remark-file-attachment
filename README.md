@@ -89,12 +89,18 @@ Note: You can also add extra css, like bottom margin, to space things out nicely
 
 ### Link text & alt text
 You can provide text to use for the "Show" and "Download" link, so thay they fit with the locale of the webiste.
+
 ```js
 showLinkText: "Show",
-showLinkAltText: "Show attachment in new tab",
+showLinkAltSuffix: "in new tab",
+
+// The alt text of the show link will be showLinkText + " " + attachment text attribute + showLinkAltSuffix.
+// Show Document 1.pdf in new tab
 
 downloadLinkText: "Download",
-downloadLinkAltText: "Download attachment",
+
+// The alt text of the download link will be downloadLinkText + " " + attachment text attribute.
+// Download Document 1.pdf
 ```
 
 ### Remark configuration:
@@ -123,11 +129,10 @@ downloadLinkAltText: "Download attachment",
     linkContainerCss: "ml-3 inline-flex space-x-4",
 
     showLinkText: "Show",
-    showLinkAltText: "Show attachment in new tab",
+    showLinkAltTextSuffix: "in new tab",
     showLinkCss: "font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline",
 
     downloadLinkText: "Download",
-    downloadLinkAltText: "Download attachment",
     downloadLinkCss: "font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline",
     downloadLinkStyle: "text-decoration: none;",
   });
@@ -168,11 +173,10 @@ module.exports = {
                 linkContainerCss: "ml-3 inline-flex space-x-4",
 
                 showLinkText: "Show",
-                showLinkAltText: "Show attachment in new tab",
+                showLinkAltTextSuffix: "in new tab",
                 showLinkCss: "font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline",
 
                 downloadLinkText: "Download",
-                downloadLinkAltText: "Download attachment",
                 downloadLinkCss: "font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline",
                 downloadLinkStyle: "text-decoration: none;",
               },
@@ -236,13 +240,13 @@ This is how the attachment/s can appear on the screen:
       <div class="flex items-center max-w-32 md:max-w-max pr-4" style="">
         <svg focusable="false" aria-hidden="true" class="flex-shrink-0 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M8 4a3 3 0 00-3 3v4a5 5 0 0010 0V7a1 1 0 112 0v4a7 7 0 11-14 0V7a5 5 0 0110 0v4a3 3 0 11-6 0V7a1 1 0 012 0v4a1 1 0 102 0V7a3 3 0 00-3-3z" clip-rule="evenodd"></path></svg>
         
-        <span class="ml-2 truncate text-gray-800 max-w-xs" style="">Purchase overview report</span>
+        <span class="ml-2 truncate text-gray-800 max-w-xs" style="" title="Purchase overview report">Purchase overview report</span>
       </div>
       
       <div class="ml-3 inline-flex space-x-4" style="">
-        <a href="/uploads/purchaseoverview-report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Show attachment in new tab" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Show</a>
+        <a href="/uploads/purchaseoverview-report.pdf" target="_blank" rel="noopener noreferrer" aria-label="Show Purchase overview report in new tab" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Show</a>
         
-        <a href="/uploads/purchaseoverview-report.pdf" download="" aria-label="Download attachment" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Download</a>
+        <a href="/uploads/purchaseoverview-report.pdf" download="" aria-label="Download Purchase overview report" class="font-medium text-blue-600 hover:text-blue-500 outline-none focus:underline">Download</a>
       </div>
     </li>
   </ul>

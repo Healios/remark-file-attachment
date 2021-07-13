@@ -59,8 +59,8 @@ module.exports = (options) =>
 				// Declare a shit-ton of variables...
 				let alignmentCss = "", containerCss = "", containerStyle = "", itemCss = "", itemStyle = "",
 					iconHTML = "", paragraphCss = "", paragraphStyle = "", iconAndParagraphContainerCss = "", iconAndParagraphContainerStyle = "",
-					showLinkCss = "", showLinkStyle = "", showLinkText = "Show", showLinkAltText = "Show attachment in new tab",
-					downloadLinkCss = "", downloadLinkStyle = "", downloadLinkText = "Download", downloadLinkAltText = "Download attachment",
+					showLinkCss = "", showLinkStyle = "", showLinkText = "Show", showLinkAltTextSuffix = "in new tab",
+					downloadLinkCss = "", downloadLinkStyle = "", downloadLinkText = "Download",
 					linkContainerCss = "", linkContainerStyle = "";
 	
 				if (options != undefined)
@@ -92,13 +92,12 @@ module.exports = (options) =>
 					showLinkCss = options.showLinkCss != undefined ? options.showLinkCss : "";
 					showLinkStyle = options.showLinkStyle != undefined ? options.showLinkStyle : "";
 					showLinkText = options.showLinkText != undefined ? options.showLinkText : "Show";
-					showLinkAltText = options.showLinkAltText != undefined ? options.showLinkAltText : "Show attachment in new tab";
+					showLinkAltTextSuffix = options.showLinkAltTextSuffix != undefined ? options.showLinkAltTextSuffix : "in new tab";
 
 					// Get css and text config for download link.
 					downloadLinkCss = options.downloadLinkCss != undefined ? options.downloadLinkCss : "";
 					downloadLinkStyle = options.downloadLinkStyle != undefined ? options.downloadLinkStyle : "";
 					downloadLinkText = options.downloadLinkText != undefined ? options.downloadLinkText : "Download";
-					downloadLinkAltText = options.downloadLinkAltText != undefined ? options.downloadLinkAltText : "Download attachment";
 
 					// Get css config for link container.
 					linkContainerCss = options.linkContainerCss != undefined ? options.linkContainerCss : "";
@@ -113,7 +112,9 @@ module.exports = (options) =>
 					const { attachment, text } = extractGroups(line);
 					if (!attributesAreValid(attachment, text, node)) return;
 					
-					attachmentHTML += `<li class="${itemCss}" style="${itemStyle}"><div class="${iconAndParagraphContainerCss}" style="${iconAndParagraphContainerStyle}">${iconHTML}<span class="${paragraphCss}" style="${paragraphStyle}">${text}</span></div><div class="${linkContainerCss}" style="${linkContainerStyle}"><a href="${attachment}" target="_blank" rel="noopener noreferrer" aria-label="${showLinkAltText}" class="${showLinkCss}" style="${showLinkStyle}">${showLinkText}</a><a href="${attachment}" download aria-label="${downloadLinkAltText}" class="${downloadLinkCss}" style="${downloadLinkStyle}">${downloadLinkText}</a></div></li>`;
+					const showLinkAltText = showLinkText + " " + text + " " + showLinkAltTextSuffix;
+					const downloadLinkAltText = downloadLinkText + " " + text;
+					attachmentHTML += `<li class="${itemCss}" style="${itemStyle}"><div class="${iconAndParagraphContainerCss}" style="${iconAndParagraphContainerStyle}">${iconHTML}<span class="${paragraphCss}" style="${paragraphStyle}" title="${text}">${text}</span></div><div class="${linkContainerCss}" style="${linkContainerStyle}"><a href="${attachment}" target="_blank" rel="noopener noreferrer" aria-label="${showLinkAltText}" class="${showLinkCss}" style="${showLinkStyle}">${showLinkText}</a><a href="${attachment}" download aria-label="${downloadLinkAltText}" class="${downloadLinkCss}" style="${downloadLinkStyle}">${downloadLinkText}</a></div></li>`;
 				}
 				attachmentHTML += "</ul>"
 
