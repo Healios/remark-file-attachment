@@ -11,18 +11,29 @@ npm i gridsome-remark-file-attachment --save-dev
 ```
 
 ## Configuration
+### Structure
+You can configure the HTML element type to be used for the attachment container and the attachment item.
+1. Attachment container _(default ul)_
+    ```js
+    containerElement: "ul",
+    ```
+2. Attachment item _(default li)_
+    ```js
+    containerElement: "li",
+    ```
+
 ### Styling
 You can provide css and styles for just about all of the attachment's HTML elements.
 
 <img src="overview.jpg" role="presentation" alt="">
 
-1. Attachment container _(ul)_
+1. Attachment container _(default ul)_
     ```js
     containerCss: "border border-gray-200 rounded-md divide-y divide-gray-200 max-w-lg mb-3",
     containerStyle: "list-style: none !important; margin-top: 0 !important; margin-bottom: 0 !important;",
     ```  
 
-2. Attachment item _(li)_
+2. Attachment item _(default li)_
     ```js
     itemCss: "pr-4 py-3 flex items-center justify-between text-sm text-gray-400 focus-within:text-blue-600",
     itemStyle: "content: none; position: static !important; margin-top: 0 !important; margin-bottom: 0 !important; padding-left: 0.75rem !important;",
@@ -113,8 +124,10 @@ downloadLinkText: "Download",
     cssClassToLeftAlign: "w-full flex justify-start",
     cssClassToRightAlign: "w-full flex justify-end",
 
+    containerElement: "ul",
     containerCss: "border border-gray-200 rounded-md divide-y divide-gray-200 max-w-lg mb-3",
     containerStyle: "list-style: none !important; margin-top: 0 !important; margin-bottom: 0 !important;",
+    itemElement: "li",
     itemCss: "pr-4 py-3 flex items-center justify-between text-sm text-gray-400 focus-within:text-blue-600",
     itemStyle: "content: none; position: static !important; margin-top: 0 !important; margin-bottom: 0 !important; padding-left: 0.75rem !important;",
 
@@ -157,8 +170,10 @@ module.exports = {
                 cssClassToLeftAlign: "w-full flex justify-start",
                 cssClassToRightAlign: "w-full flex justify-end",
 
+                containerElement: "ul",
                 containerCss: "border border-gray-200 rounded-md divide-y divide-gray-200 max-w-lg mb-3",
                 containerStyle: "list-style: none !important; margin-top: 0 !important; margin-bottom: 0 !important;",
+                itemElement: "li",
                 itemCss: "pr-4 py-3 flex items-center justify-between text-sm text-gray-400 focus-within:text-blue-600",
                 itemStyle: "content: none; position: static !important; margin-top: 0 !important; margin-bottom: 0 !important; padding-left: 0.75rem !important;",
 

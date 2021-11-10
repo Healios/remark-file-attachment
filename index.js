@@ -57,7 +57,7 @@ module.exports = (options) =>
 				const placement = extractGroups(matches[0]).placement;
 
 				// Declare a shit-ton of variables...
-				let alignmentCss = "", containerCss = "", containerStyle = "", itemCss = "", itemStyle = "",
+				let alignmentCss = "", containerElement = "ul", containerCss = "", containerStyle = "", itemElement = "li", itemCss = "", itemStyle = "",
 					iconHTML = "", paragraphCss = "", paragraphStyle = "", iconAndParagraphContainerCss = "", iconAndParagraphContainerStyle = "",
 					showLinkCss = "", showLinkStyle = "", showLinkText = "Show", showLinkAltTextSuffix = "in new tab",
 					downloadLinkCss = "", downloadLinkStyle = "", downloadLinkText = "Download",
@@ -71,9 +71,11 @@ module.exports = (options) =>
 					if (placement == "Right") alignmentCss = options.cssClassToRightAlign;
 					if (alignmentCss == undefined) alignmentCss = "";
 
-					// Get css config for grouped attachments.
+					// Get html & css config for grouped attachments.
+					containerElement = options.containerElement != undefined ? options.containerElement : "ul";
 					containerCss = options.containerCss != undefined ? options.containerCss : "";
 					containerStyle = options.containerStyle != undefined ? options.containerStyle : "";
+					itemElement = options.itemElement != undefined ? options.itemElement : "li";
 					itemCss = options.itemCss != undefined ? options.itemCss : "";
 					itemStyle = options.itemStyle != undefined ? options.itemStyle : "";
 
@@ -106,7 +108,7 @@ module.exports = (options) =>
 
 				// Generate html based on whether it is a single attachment or a group of attachments.
 				let attachmentHTML = "";
-				attachmentHTML += `<ul class="${containerCss}" style="${containerStyle}">`;
+				attachmentHTML += `<${containerElement} class="${containerCss}" style="${containerStyle}">`;
 				for(const line of matches)
 				{
 					const { attachment, text } = extractGroups(line);
@@ -114,9 +116,9 @@ module.exports = (options) =>
 					
 					const showLinkAltText = showLinkText + " " + text + " " + showLinkAltTextSuffix;
 					const downloadLinkAltText = downloadLinkText + " " + text;
-					attachmentHTML += `<li class="${itemCss}" style="${itemStyle}"><div class="${iconAndParagraphContainerCss}" style="${iconAndParagraphContainerStyle}">${iconHTML}<span class="${paragraphCss}" style="${paragraphStyle}" title="${text}">${text}</span></div><div class="${linkContainerCss}" style="${linkContainerStyle}"><a href="${attachment}" target="_blank" rel="noopener noreferrer" aria-label="${showLinkAltText}" class="${showLinkCss}" style="${showLinkStyle}">${showLinkText}</a><a href="${attachment}" download aria-label="${downloadLinkAltText}" class="${downloadLinkCss}" style="${downloadLinkStyle}">${downloadLinkText}</a></div></li>`;
+					attachmentHTML += `<${itemElement} class="${itemCss}" style="${itemStyle}"><div class="${iconAndParagraphContainerCss}" style="${iconAndParagraphContainerStyle}">${iconHTML}<span class="${paragraphCss}" style="${paragraphStyle}" title="${text}">${text}</span></div><div class="${linkContainerCss}" style="${linkContainerStyle}"><a href="${attachment}" target="_blank" rel="noopener noreferrer" aria-label="${showLinkAltText}" class="${showLinkCss}" style="${showLinkStyle}">${showLinkText}</a><a href="${attachment}" download aria-label="${downloadLinkAltText}" class="${downloadLinkCss}" style="${downloadLinkStyle}">${downloadLinkText}</a></div></${itemElement}>`;
 				}
-				attachmentHTML += "</ul>"
+				attachmentHTML += `</${containerElement}>`
 
 				// Update the node.
 				node.type = "html";
